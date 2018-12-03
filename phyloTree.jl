@@ -510,11 +510,11 @@ function ntWeight(g1::String, g2::String, matches::Array{Array{Union{Nothing, Ar
     coverageA = 0
     coverageB = 0
     
-    strong = 1.1
-    weak = 1.2
-    purine_transition = .2
-    pyrimidine_transition = .2
-    transversion = .9
+    strong = 1
+    weak = 0.9
+    purine_transition = .5
+    pyrimidine_transition = .5
+    transversion = 0
     
     for m in 1:length(matches)
         if matches[m][1] != nothing
@@ -1091,9 +1091,9 @@ for seq in sequences_with_extra_newline
 end
 
 # Running it for first time
-main(sequences)
+# main(sequences)
 # # write_tree_file(phyloTree)
-write_file(phyloTree, inp_file_name*"_out.nwk")
+# write_file(phyloTree, inp_file_name*"_out.nwk")
 
 
 # Profiling it when it is run the second time
